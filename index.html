@@ -5,66 +5,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoftBecX Shield</title>
+    <title>SoftBecX Shield - Seguridad digital</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <header>
-        <h1>SoftBecX Shield</h1>
-        <p>Inteligencia que protege tu mundo digital</p>
 
-        <nav>
-            <a href="#alertas">Alertas</a>
-            <a href="#incidentes">Reportar incidente</a>
+    <header class="encabezado">
+
+        <div class="banner">
+            <img
+                src="img/banner-softbecx.png"
+                alt="SoftBecX Shield. Inteligencia que protege tu mundo digital"
+            >
+        </div>
+
+        <nav class="navegacion">
+            <a class="enlace-activo" href="#alertas">Alertas</a>
+            <a href="reporte-incidente.html">Reportar incidente</a>
         </nav>
+
     </header>
 
     <main>
+
         <section id="alertas" class="catalogo">
+
             <article class="producto">
-                <h3>Correo sospechoso</h3>
+                <img
+                    src="img/phishing.png"
+                    alt="Correo electrónico con señal de advertencia"
+                >
+                <h2>Correo sospechoso</h2>
                 <p>Tipo: Posible phishing</p>
-                <p class="precio">Riesgo alto</p>
+                <p class="nivel-riesgo">Riesgo alto</p>
             </article>
 
             <article class="producto">
-                <h3>Enlace sospechoso</h3>
+                <img
+                    src="img/enlace.png"
+                    alt="Enlace web con señal de advertencia"
+                >
+                <h2>Enlace sospechoso</h2>
                 <p>Tipo: URL por revisar</p>
-                <p class="precio">Riesgo medio</p>
+                <p class="nivel-riesgo">Riesgo medio</p>
             </article>
 
             <article class="producto">
-                <h3>Actividad inusual</h3>
+                <img
+                    src="img/actividad.png"
+                    alt="Pantalla con actividad sospechosa"
+                >
+                <h2>Actividad inusual</h2>
                 <p>Tipo: Acceso por verificar</p>
-                <p class="precio">Riesgo bajo</p>
+                <p class="nivel-riesgo">Riesgo bajo</p>
             </article>
+
         </section>
 
-        <section id="incidentes" class="contacto">
-            <h2>Reportar un incidente</h2>
+        <section class="acceso-reporte">
 
-            <article class="contacto">
-                <form action="">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre">
+            <h2>
+                <span class="icono-alerta" aria-hidden="true">!</span>
+                ¿Detectaste algo sospechoso?
+            </h2>
 
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email">
+            <p>
+                Informa sobre posibles amenazas para facilitar su revisión.
+            </p>
 
-                    <label for="descripcion">Descripción del incidente</label>
-                    <input type="text" id="descripcion">
+            <a class="boton-principal" href="reporte-incidente.html">
+                <span aria-hidden="true">🛡</span>
+                Reportar incidente
+            </a>
 
-                    <button>Enviar reporte</button>
-                </form>
-            </article>
         </section>
+
     </main>
 
     <footer>
         <p>SoftBecX Shield - 2026</p>
         <p>Inteligencia que protege tu mundo digital</p>
     </footer>
+
 </body>
 
 </html>

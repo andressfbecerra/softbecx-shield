@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar incidente - SoftBecX Shield</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header class="encabezado-reporte">
+
+        <div class="marca-reporte">
+            <h1>SoftBecX <span>Shield</span></h1>
+            <p>Inteligencia que protege tu mundo digital</p>
+        </div>
+
+        <nav class="navegacion">
+            <a href="index.html">Inicio</a>
+            <a class="enlace-activo" href="reporte-incidente.html">
+                Reportar incidente
+            </a>
+        </nav>
+
+    </header>
+
+    <main class="pagina-reporte">
+
+        <section class="introduccion-reporte">
+            <span class="etiqueta-reporte">CENTRO DE SEGURIDAD</span>
+
+            <h2>Reportar un incidente</h2>
+
+            <p>
+                Ayúdanos a identificar posibles amenazas digitales.
+                Completa el formulario con la información del incidente.
+            </p>
+        </section>
+
+        <section class="tarjeta-reporte">
+
+            <div class="encabezado-formulario">
+
+                <div class="simbolo-reporte" aria-hidden="true">!</div>
+
+                <div>
+                    <h3>Información del incidente</h3>
+                    <p>Completa todos los campos obligatorios.</p>
+                </div>
+
+            </div>
+
+            <form class="formulario-reporte" action="" method="get">
+
+                <div class="campo-formulario">
+                    <label for="nombre">Nombre completo</label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Escribe tu nombre"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="email">Correo electrónico</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="ejemplo@correo.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="tipo-incidente">Tipo de incidente</label>
+
+                    <select
+                        id="tipo-incidente"
+                        name="tipo-incidente"
+                        required
+                    >
+                        <option value="">Selecciona una opción</option>
+                        <option value="phishing">Correo sospechoso o phishing</option>
+                        <option value="url">Enlace o URL sospechosa</option>
+                        <option value="acceso">Acceso o actividad inusual</option>
+                        <option value="suplantacion">Suplantación de identidad</option>
+                        <option value="otro">Otro incidente</option>
+                    </select>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="descripcion">
+                        Descripción del incidente
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="6"
+                        placeholder="Describe qué ocurrió, dónde lo detectaste y qué información consideras importante."
+                        required
+                    ></textarea>
+
+                    <small>
+                        No incluyas contraseñas ni información bancaria confidencial.
+                    </small>
+                </div>
+
+                <button class="boton-enviar" type="submit">
+                    Enviar reporte
+                </button>
+
+                <p class="nota-formulario">
+                    Todos los campos son obligatorios.
+                </p>
+
+            </form>
+
+        </section>
+
+        <div class="aviso-seguridad">
+            <span aria-hidden="true">🛡</span>
+
+            <p>
+                <strong>Tu seguridad es importante.</strong>
+                No abras enlaces sospechosos ni compartas tus contraseñas.
+            </p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>SoftBecX Shield - 2026</p>
+        <p>Inteligencia que protege tu mundo digital</p>
+    </footer>
+
+</body>
+
+</html>
