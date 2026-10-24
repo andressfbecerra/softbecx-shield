@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registro de clientes en SoftBecX Shield.">
+
+    <title>Registro de cliente | SoftBecX Shield</title>
+
+    <style>
+        :root {
+            --rojo: #C62828;
+            --rojo-hover: #A51F1F;
+            --grafito: #202124;
+            --blanco-humo: #F5F5F5;
+            --gris: #66686C;
+            --borde: #D3D3D5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--grafito);
+            background-color: var(--grafito);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        input,
+        button,
+        select {
+            font: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 3px solid var(--rojo);
+            outline-offset: 3px;
+        }
+
+        .tarjeta-registro {
+            width: 100%;
+            max-width: 720px;
+            padding: 38px 42px;
+            background-color: var(--blanco-humo);
+            border-top: 6px solid var(--rojo);
+            border-radius: 16px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+        }
+
+        .encabezado {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .marca {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: var(--grafito);
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .marca span {
+            color: var(--rojo);
+        }
+
+        .subtitulo {
+            margin-bottom: 9px;
+            color: var(--rojo);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+        }
+
+        .encabezado h1 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .descripcion {
+            color: var(--gris);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .grupo-campos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .campo input,
+        .campo select {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 13px;
+            color: var(--grafito);
+            background-color: #FFFFFF;
+            border: 1px solid var(--borde);
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        .campo input::placeholder {
+            color: #858589;
+        }
+
+        .campo input:focus,
+        .campo select:focus {
+            border-color: var(--rojo);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+        }
+
+        .terminos {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #55575B;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .terminos input {
+            width: 16px;
+            height: 16px;
+            margin-top: 3px;
+            flex-shrink: 0;
+            accent-color: var(--rojo);
+        }
+
+        .terminos a {
+            color: var(--rojo);
+            font-weight: 700;
+        }
+
+        .boton-registro {
+            width: 100%;
+            min-height: 54px;
+            padding: 14px 20px;
+            color: #FFFFFF;
+            background-color: var(--rojo);
+            border: 2px solid var(--rojo);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 700;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .boton-registro:hover {
+            background-color: var(--rojo-hover);
+            border-color: var(--rojo-hover);
+            transform: translateY(-1px);
+        }
+
+        .separador {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0 20px;
+        }
+
+        .separador span {
+            height: 1px;
+            flex: 1;
+            background-color: #D8D8D8;
+        }
+
+        .separador p {
+            color: #77797D;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .enlace-login {
+            color: #55575B;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .enlace-login a {
+            color: var(--rojo);
+            font-weight: 700;
+        }
+
+        .enlace-login a:hover,
+        .terminos a:hover {
+            text-decoration: underline;
+        }
+
+        .volver-inicio {
+            display: block;
+            margin-top: 20px;
+            color: #44464A;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .volver-inicio:hover {
+            color: var(--rojo);
+        }
+
+        .nota {
+            margin-top: 24px;
+            color: #77797D;
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px 12px;
+                align-items: flex-start;
+            }
+
+            .tarjeta-registro {
+                padding: 28px 20px;
+                border-radius: 13px;
+            }
+
+            .encabezado {
+                margin-bottom: 25px;
+            }
+
+            .encabezado h1 {
+                font-size: 27px;
+            }
+
+            .grupo-campos {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .formulario {
+                gap: 18px;
+            }
+
+            .campo input,
+            .campo select {
+                min-height: 48px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="tarjeta-registro">
+
+        <header class="encabezado">
+
+            <a href="index.html" class="marca">
+                SoftBecX <span>Shield</span>
+            </a>
+
+            <p class="subtitulo">CREA TU CUENTA</p>
+
+            <h1>Registro de cliente</h1>
+
+            <p class="descripcion">
+                Completa tus datos para solicitar tu registro en SoftBecX Shield.
+            </p>
+
+        </header>
+
+        <form class="formulario" action="#" method="get">
+
+            <div class="grupo-campos">
+
+                <div class="campo">
+                    <label for="nombres">Nombres</label>
+
+                    <input
+                        type="text"
+                        id="nombres"
+                        name="nombres"
+                        placeholder="Tus nombres"
+                        autocomplete="given-name"
+                        maxlength="80"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="apellidos">Apellidos</label>
+
+                    <input
+                        type="text"
+                        id="apellidos"
+                        name="apellidos"
+                        placeholder="Tus apellidos"
+                        autocomplete="family-name"
+                        maxlength="80"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="grupo-campos">
+
+                <div class="campo">
+                    <label for="tipo-documento">Tipo de documento</label>
+
+                    <select
+                        id="tipo-documento"
+                        name="tipo_documento"
+                        required
+                    >
+                        <option value="">Selecciona una opción</option>
+                        <option value="CC">Cédula de ciudadanía</option>
+                        <option value="CE">Cédula de extranjería</option>
+                        <option value="PAS">Pasaporte</option>
+                        <option value="NIT">NIT</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="documento">Número de documento</label>
+
+                    <input
+                        type="text"
+                        id="documento"
+                        name="documento"
+                        placeholder="Número de documento"
+                        autocomplete="off"
+                        maxlength="30"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <div class="campo">
+                <label for="empresa">Empresa</label>
+
+                <input
+                    type="text"
+                    id="empresa"
+                    name="empresa"
+                    placeholder="Nombre de la empresa (si aplica)"
+                    autocomplete="organization"
+                    maxlength="120"
+                >
+            </div>
+
+            <div class="campo">
+                <label for="correo">Correo electrónico</label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="usuario@empresa.com"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="telefono">Teléfono de contacto</label>
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="Número de contacto"
+                    autocomplete="tel"
+                    maxlength="20"
+                    required
+                >
+            </div>
+
+            <div class="grupo-campos">
+
+                <div class="campo">
+                    <label for="contrasena">Contraseña</label>
+
+                    <input
+                        type="password"
+                        id="contrasena"
+                        name="contrasena"
+                        placeholder="Mínimo 8 caracteres"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="confirmar-contrasena">
+                        Confirmar contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmar-contrasena"
+                        name="confirmar_contrasena"
+                        placeholder="Repite la contraseña"
+                        autocomplete="new-password"
+                        minlength="8"
+                        required
+                    >
+                </div>
+
+            </div>
+
+            <label class="terminos">
+                <input
+                    type="checkbox"
+                    id="aceptar-terminos"
+                    name="aceptar_terminos"
+                    value="si"
+                    required
+                >
+
+                <span>
+                    Acepto las condiciones de uso y el tratamiento de mis datos
+                    para gestionar mi solicitud de registro.
+                </span>
+            </label>
+
+            <button type="submit" class="boton-registro">
+                Crear cuenta
+            </button>
+
+        </form>
+
+        <div class="separador">
+            <span></span>
+            <p>¿YA TIENES UNA CUENTA?</p>
+            <span></span>
+        </div>
+
+        <p class="enlace-login">
+            <a href="login.html">Volver a iniciar sesión</a>
+        </p>
+
+        <a href="index.html" class="volver-inicio">
+            &larr; Volver al inicio
+        </a>
+
+        <p class="nota">
+            Formulario demostrativo. Los datos no se guardan en una base de datos.
+        </p>
+
+    </main>
+
+</body>
+
+</html>
