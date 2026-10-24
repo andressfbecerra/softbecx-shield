@@ -138,58 +138,6 @@ body {
     font-weight: bold;
 }
 
-.acceso-reporte {
-    padding: 20px 16px 28px;
-    text-align: center;
-    background: #FFFFFF;
-}
-
-.acceso-reporte h2 {
-    margin: 0 0 8px;
-    font-size: 24px;
-    color: #202124;
-}
-
-.icono-alerta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    margin-right: 6px;
-    background: #C62828;
-    color: #FFFFFF;
-    border-radius: 6px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.acceso-reporte p {
-    margin: 8px 0 16px;
-    font-size: 17px;
-}
-
-.boton-principal {
-    display: inline-block;
-    padding: 13px 24px;
-    background: #C62828;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 8px;
-    box-shadow: 0 3px 7px rgba(198, 40, 40, 0.2);
-    transition: background 0.2s ease;
-}
-
-.boton-principal span {
-    margin-right: 6px;
-}
-
-.boton-principal:hover {
-    background: #A61F1F;
-}
-
 .pagina-reporte {
     width: 100%;
     max-width: 1000px;
@@ -347,7 +295,6 @@ body {
 }
 
 .boton-enviar:focus-visible,
-.boton-principal:focus-visible,
 .navegacion a:focus-visible {
     outline: 3px solid #C62828;
     outline-offset: 3px;
@@ -384,8 +331,6 @@ body {
 .aviso-seguridad strong {
     color: #202124;
 }
-
-/* Recuperación de contraseña */
 
 .pagina-recuperacion {
     display: flex;
@@ -712,14 +657,6 @@ footer p {
         max-width: 420px;
     }
 
-    .acceso-reporte h2 {
-        font-size: 21px;
-    }
-
-    .acceso-reporte p {
-        font-size: 15px;
-    }
-
     .marca-reporte {
         padding: 18px 16px;
     }
@@ -846,7 +783,6 @@ footer p {
     }
 
     .producto,
-    .boton-principal,
     .boton-enviar,
     .enlace-inicio-recuperacion,
     .boton-recuperacion {
