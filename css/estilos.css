@@ -288,6 +288,8 @@ body {
 .campo-formulario select,
 .campo-formulario textarea {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     padding: 13px 14px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -383,6 +385,300 @@ body {
     color: #202124;
 }
 
+/* Recuperación de contraseña */
+
+.pagina-recuperacion {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #202124;
+    color: #F5F5F5;
+    line-height: 1.5;
+}
+
+.encabezado-recuperacion {
+    width: 100%;
+    padding: 16px 24px;
+    background: #202124;
+    border-bottom: 2px solid #C62828;
+}
+
+.contenedor-header-recuperacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo-recuperacion {
+    color: #F5F5F5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.logo-recuperacion span {
+    color: #C62828;
+}
+
+.enlace-inicio-recuperacion {
+    display: inline-block;
+    padding: 9px 15px;
+    color: #F5F5F5;
+    background: transparent;
+    border: 1px solid #F5F5F5;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.enlace-inicio-recuperacion:hover {
+    background: #C62828;
+    border-color: #C62828;
+}
+
+.contenido-recuperacion {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 36px 20px;
+}
+
+.contenedor-recuperacion {
+    width: 100%;
+    max-width: 480px;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+.introduccion-recuperacion {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.introduccion-recuperacion h1 {
+    margin: 0 0 12px;
+    color: #F5F5F5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.introduccion-recuperacion p {
+    margin: 0;
+    color: #D0D0D0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.tarjeta-recuperacion {
+    width: 100%;
+    min-width: 0;
+    padding: 32px;
+    color: #202124;
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.imagen-recuperacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 18px;
+}
+
+.imagen-recuperacion img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tarjeta-recuperacion h2 {
+    margin: 0 0 12px;
+    color: #202124;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.descripcion-recuperacion {
+    margin: 0 0 24px;
+    color: #55585C;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+#formulario-recuperacion {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.grupo-campo-recuperacion {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 22px;
+}
+
+.grupo-campo-recuperacion label {
+    display: block;
+    margin: 0;
+    color: #202124;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.grupo-campo-recuperacion input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 46px;
+    min-height: 46px;
+    margin: 0;
+    padding: 10px 14px;
+    color: #202124;
+    background: #FFFFFF;
+    border: 1px solid #D0D0D0;
+    border-radius: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.5;
+    appearance: none;
+}
+
+.grupo-campo-recuperacion input::placeholder {
+    color: #858585;
+    opacity: 1;
+}
+
+.grupo-campo-recuperacion input:focus {
+    outline: 2px solid #C62828;
+    outline-offset: 1px;
+    border-color: #C62828;
+}
+
+.ayuda-campo-recuperacion {
+    display: block;
+    margin: 0;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.boton-recuperacion {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    margin: 0;
+    padding: 12px 18px;
+    color: #FFFFFF;
+    background: #C62828;
+    border: none;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.boton-recuperacion:hover {
+    background: #A61F1F;
+}
+
+.mensaje-recuperacion {
+    display: none;
+    margin: 18px 0 0;
+    padding: 12px;
+    color: #7D1B1B;
+    background: #FBE9E9;
+    border: 1px solid #E8BABA;
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.volver-recuperacion {
+    display: block;
+    margin-top: 22px;
+    color: #202124;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+}
+
+.volver-recuperacion:hover {
+    color: #C62828;
+    text-decoration: underline;
+}
+
+.enlace-inicio-recuperacion:focus-visible,
+.boton-recuperacion:focus-visible,
+.volver-recuperacion:focus-visible {
+    outline: 3px solid #C62828;
+    outline-offset: 3px;
+}
+
+.pie-recuperacion {
+    padding: 16px 20px;
+    color: #F5F5F5;
+    background: #202124;
+    border-top: none;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.pie-recuperacion p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.pie-recuperacion p + p {
+    color: #D0D0D0;
+}
+
 footer {
     padding: 16px 20px;
     text-align: center;
@@ -466,6 +762,84 @@ footer p {
     }
 }
 
+@media (max-width: 500px) {
+    .encabezado-recuperacion {
+        padding: 14px 16px;
+    }
+
+    .logo-recuperacion {
+        font-size: 17px;
+    }
+
+    .enlace-inicio-recuperacion {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .contenido-recuperacion {
+        padding: 28px 16px;
+    }
+
+    .introduccion-recuperacion h1 {
+        font-size: 27px;
+    }
+
+    .introduccion-recuperacion p {
+        font-size: 14px;
+    }
+
+    .tarjeta-recuperacion {
+        padding: 26px 20px;
+    }
+
+    .imagen-recuperacion {
+        width: 85px;
+        height: 85px;
+        margin-bottom: 16px;
+    }
+
+    .tarjeta-recuperacion h2 {
+        font-size: 20px;
+    }
+
+    .descripcion-recuperacion {
+        font-size: 14px;
+    }
+
+    .pie-recuperacion p {
+        font-size: 12px;
+    }
+}
+
+@media (max-height: 750px) and (min-width: 501px) {
+    .contenido-recuperacion {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .introduccion-recuperacion {
+        margin-bottom: 18px;
+    }
+
+    .introduccion-recuperacion h1 {
+        font-size: 28px;
+    }
+
+    .tarjeta-recuperacion {
+        padding: 24px 32px;
+    }
+
+    .imagen-recuperacion {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 12px;
+    }
+
+    .descripcion-recuperacion {
+        margin-bottom: 18px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -473,7 +847,9 @@ footer p {
 
     .producto,
     .boton-principal,
-    .boton-enviar {
+    .boton-enviar,
+    .enlace-inicio-recuperacion,
+    .boton-recuperacion {
         transition: none;
     }
 }
