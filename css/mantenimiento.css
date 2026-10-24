@@ -1,0 +1,240 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #202124;
+    color: #202124;
+    line-height: 1.5;
+}
+
+.encabezado-mantenimiento {
+    display: flex;
+    align-items: center;
+    min-height: 82px;
+    padding: 14px 6%;
+    background: #202124;
+    border-bottom: 2px solid #C62828;
+}
+
+.marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #F5F5F5;
+    text-decoration: none;
+}
+
+.marca-icono {
+    display: none;
+}
+
+.marca-texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.marca-texto strong {
+    font-size: 21px;
+}
+
+.marca-texto > span {
+    margin-top: 4px;
+    color: #FF3838;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.contenido-mantenimiento {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.tarjeta-mantenimiento {
+    width: 100%;
+    max-width: 1065px;
+    padding: 36px 48px 42px;
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    border-top: 5px solid #C62828;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+.ilustracion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 18px;
+}
+
+.ilustracion img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.etiqueta {
+    margin: 0 0 12px;
+    color: #C62828;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tarjeta-mantenimiento h1 {
+    max-width: 650px;
+    margin: 0 auto 18px;
+    color: #202124;
+    font-size: 36px;
+    line-height: 1.25;
+}
+
+.tarjeta-mantenimiento h1 span {
+    display: block;
+    color: #C62828;
+}
+
+.descripcion {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    color: #55585C;
+    font-size: 17px;
+}
+
+.boton-inicio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 266px;
+    min-height: 58px;
+    margin: 0 auto;
+    padding: 15px 24px;
+    background: #C62828;
+    color: #FFFFFF;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.boton-inicio:hover {
+    background: #A61F1F;
+}
+
+.boton-inicio:focus-visible,
+.marca:focus-visible {
+    outline: 3px solid #C62828;
+    outline-offset: 4px;
+}
+
+.pie-mantenimiento {
+    padding: 18px 20px;
+    text-align: center;
+    background: #202124;
+    color: #F5F5F5;
+    border-top: none;
+}
+
+.pie-mantenimiento p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .encabezado-mantenimiento {
+        min-height: 72px;
+        padding: 12px 20px;
+    }
+
+    .marca-texto strong {
+        font-size: 19px;
+    }
+
+    .contenido-mantenimiento {
+        padding: 20px 16px;
+    }
+
+    .tarjeta-mantenimiento {
+        padding: 28px 20px 32px;
+        border-radius: 14px;
+    }
+
+    .ilustracion {
+        width: 145px;
+        height: 145px;
+        margin-bottom: 16px;
+    }
+
+    .tarjeta-mantenimiento h1 {
+        font-size: 28px;
+    }
+
+    .descripcion {
+        margin-bottom: 24px;
+        font-size: 15px;
+    }
+
+    .boton-inicio {
+        width: 100%;
+        min-height: 52px;
+    }
+
+    .pie-mantenimiento p {
+        font-size: 13px;
+    }
+}
+
+@media (max-height: 750px) and (min-width: 601px) {
+    .contenido-mantenimiento {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .tarjeta-mantenimiento {
+        padding-top: 20px;
+        padding-bottom: 24px;
+    }
+
+    .ilustracion {
+        width: 125px;
+        height: 125px;
+        margin-bottom: 10px;
+    }
+
+    .tarjeta-mantenimiento h1 {
+        margin-bottom: 12px;
+        font-size: 32px;
+    }
+
+    .descripcion {
+        margin-bottom: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .boton-inicio {
+        transition: none;
+    }
+}
