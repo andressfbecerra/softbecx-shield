@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acceso a SoftBecX Shield, plataforma de seguridad digital empresarial.">
+
+    <title>Iniciar sesión | SoftBecX Shield</title>
+
+    <style>
+        :root {
+            --rojo: #C62828;
+            --rojo-hover: #A51F1F;
+            --grafito: #202124;
+            --blanco-humo: #F5F5F5;
+            --gris: #66686C;
+            --borde: #D3D3D5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--grafito);
+            background-color: var(--grafito);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 3px solid var(--rojo);
+            outline-offset: 4px;
+        }
+
+        .tarjeta-login {
+            width: 100%;
+            max-width: 550px;
+            padding: 42px 48px;
+            background-color: var(--blanco-humo);
+            border-top: 6px solid var(--rojo);
+            border-radius: 17px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+        }
+
+        .encabezado-tarjeta {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .subtitulo {
+            margin-bottom: 8px;
+            color: var(--rojo);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .encabezado-tarjeta h1 {
+            margin-bottom: 10px;
+            color: var(--grafito);
+            font-size: 36px;
+            line-height: 1.25;
+        }
+
+        .texto-tarjeta {
+            color: var(--gris);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 9px;
+            color: var(--grafito);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .campo input {
+            display: block;
+            width: 100%;
+            min-height: 62px;
+            padding: 16px 17px;
+            color: var(--grafito);
+            background-color: #FFFFFF;
+            border: 1px solid var(--borde);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .campo input::placeholder {
+            color: #77797D;
+        }
+
+        .campo input:focus {
+            border-color: var(--rojo);
+            box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+            outline: none;
+        }
+
+        .opciones {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 1px;
+        }
+
+        .recordar {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #55575B;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .recordar input {
+            width: 17px;
+            height: 17px;
+            accent-color: var(--rojo);
+            cursor: pointer;
+        }
+
+        .enlace {
+            color: var(--rojo);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .enlace:hover {
+            color: var(--rojo-hover);
+            text-decoration: underline;
+        }
+
+        .boton-login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 68px;
+            margin-top: 2px;
+            padding: 17px 22px;
+            color: #FFFFFF;
+            background-color: var(--rojo);
+            border: 2px solid var(--rojo);
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .boton-login:hover {
+            background-color: var(--rojo-hover);
+            border-color: var(--rojo-hover);
+            transform: translateY(-1px);
+        }
+
+        .separador {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 32px 0 22px;
+        }
+
+        .separador span {
+            height: 1px;
+            flex: 1;
+            background-color: #D8D8D8;
+        }
+
+        .separador p {
+            color: #77797D;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            white-space: nowrap;
+        }
+
+        .registro {
+            margin-bottom: 23px;
+            color: #55575B;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .volver {
+            display: block;
+            color: #44464A;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .volver:hover {
+            color: var(--rojo);
+        }
+
+        .nota {
+            margin-top: 25px;
+            color: #77797D;
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px;
+            }
+
+            .tarjeta-login {
+                max-width: 440px;
+                padding: 32px 24px;
+                border-radius: 14px;
+            }
+
+            .encabezado-tarjeta {
+                margin-bottom: 28px;
+            }
+
+            .subtitulo {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .encabezado-tarjeta h1 {
+                font-size: 30px;
+            }
+
+            .texto-tarjeta {
+                font-size: 14px;
+            }
+
+            .formulario {
+                gap: 20px;
+            }
+
+            .campo input {
+                min-height: 54px;
+                font-size: 15px;
+            }
+
+            .boton-login {
+                min-height: 58px;
+            }
+
+            .opciones {
+                align-items: flex-start;
+            }
+
+            .recordar,
+            .enlace {
+                font-size: 12px;
+            }
+
+            .separador {
+                gap: 9px;
+            }
+
+            .separador p {
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .tarjeta-login {
+                padding: 27px 18px;
+            }
+
+            .opciones {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .encabezado-tarjeta h1 {
+                font-size: 27px;
+            }
+        }
+
+        @media (max-height: 700px) and (min-width: 601px) {
+            body {
+                align-items: flex-start;
+            }
+
+            .tarjeta-login {
+                margin: 15px 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="tarjeta-login">
+
+        <header class="encabezado-tarjeta">
+            <p class="subtitulo">BIENVENIDO DE NUEVO</p>
+
+            <h1>Inicia sesión</h1>
+
+            <p class="texto-tarjeta">
+                Introduce tus datos para continuar.
+            </p>
+        </header>
+
+        <form class="formulario" action="#" method="get">
+
+            <div class="campo">
+                <label for="correo">Correo electrónico</label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="usuario@empresa.com"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="contrasena">Contraseña</label>
+
+                <input
+                    type="password"
+                    id="contrasena"
+                    name="contrasena"
+                    placeholder="Ingresa tu contraseña"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <div class="opciones">
+
+                <label class="recordar">
+                    <input type="checkbox" name="recordarme">
+                    <span>Recordarme</span>
+                </label>
+
+                <a href="#" class="enlace">
+                    ¿Olvidaste tu contraseña?
+                </a>
+
+            </div>
+
+            <button type="submit" class="boton-login">
+                Iniciar sesión
+            </button>
+
+        </form>
+
+        <div class="separador">
+            <span></span>
+            <p>ACCESO A LA PLATAFORMA</p>
+            <span></span>
+        </div>
+
+        <p class="registro">
+            ¿No tienes una cuenta?
+            <a href="registro.html" class="enlace">Regístrate</a>
+        </p>
+
+        <a href="index.html" class="volver">
+            &larr; Volver al inicio
+        </a>
+
+        <p class="nota">
+            Interfaz demostrativa. Autenticación no implementada.
+        </p>
+
+    </main>
+
+</body>
+
+</html>
