@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -27,9 +28,9 @@
 
     </header>
 
-    <main>
+    <main id="Inicio">
 
-        <section id="alertas" class="catalogo">
+        <section id="alertas" class="catalogo" aria-label="Alertas de seguridad">
 
             <article class="producto">
                 <img
@@ -59,6 +60,36 @@
                 <h2>Actividad inusual</h2>
                 <p>Tipo: Acceso por verificar</p>
                 <p class="nivel-riesgo">Riesgo bajo</p>
+            </article>
+
+            <article class="producto">
+                <img
+                    src="img/malware.png"
+                    alt="Archivo infectado con advertencia de malware"
+                >
+                <h2>Malware detectado</h2>
+                <p>Tipo: Archivo potencialmente malicioso</p>
+                <p class="nivel-riesgo">Riesgo alto</p>
+            </article>
+
+            <article class="producto">
+                <img
+                    src="img/acceso-fallido.png"
+                    alt="Usuario con intentos de acceso fallidos"
+                >
+                <h2>Intentos de acceso fallidos</h2>
+                <p>Tipo: Autenticación por verificar</p>
+                <p class="nivel-riesgo">Riesgo medio</p>
+            </article>
+
+            <article class="producto">
+                <img
+                    src="img/transaccion.png"
+                    alt="Tarjeta bancaria con advertencia de transacción sospechosa"
+                >
+                <h2>Transacción sospechosa</h2>
+                <p>Tipo: Operación financiera por revisar</p>
+                <p class="nivel-riesgo">Riesgo alto</p>
             </article>
 
         </section>

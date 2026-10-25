@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -82,18 +83,18 @@ body {
 }
 
 .catalogo {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: center;
     align-items: stretch;
     gap: 32px;
-    padding: 36px 24px 28px;
+    padding: 36px 4%;
     background: #F5F5F5;
 }
 
 .producto {
-    flex: 1 1 280px;
-    max-width: 360px;
+    width: 100%;
+    max-width: none;
     min-width: 0;
     padding: 24px 20px 20px;
     text-align: center;
@@ -113,9 +114,9 @@ body {
 
 .producto img {
     display: block;
-    width: 100%;
-    max-width: 150px;
+    width: 150px;
     height: 125px;
+    max-width: 100%;
     object-fit: contain;
     margin: 0 auto 16px;
 }
@@ -124,6 +125,7 @@ body {
     margin: 0 0 10px;
     font-size: 22px;
     line-height: 1.3;
+    overflow-wrap: break-word;
 }
 
 .producto p {
@@ -637,6 +639,14 @@ footer p {
     font-size: 15px;
 }
 
+@media (max-width: 900px) {
+    .catalogo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        padding: 28px 4%;
+    }
+}
+
 @media (max-width: 700px) {
     .navegacion {
         gap: 18px;
@@ -650,11 +660,6 @@ footer p {
     .catalogo {
         gap: 20px;
         padding: 24px 16px;
-    }
-
-    .producto {
-        flex: 1 1 100%;
-        max-width: 420px;
     }
 
     .marca-reporte {
@@ -696,6 +701,17 @@ footer p {
     .aviso-seguridad {
         align-items: flex-start;
         padding: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .catalogo {
+        grid-template-columns: 1fr;
+    }
+
+    .producto {
+        max-width: 420px;
+        justify-self: center;
     }
 }
 
@@ -787,5 +803,23 @@ footer p {
     .enlace-inicio-recuperacion,
     .boton-recuperacion {
         transition: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .producto {
+        padding: 22px 16px 18px;
+    }
+
+    .producto h2 {
+        font-size: 20px;
+    }
+
+    .producto p {
+        font-size: 15px;
+    }
+
+    .producto .nivel-riesgo {
+        font-size: 20px;
     }
 }
