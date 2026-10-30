@@ -186,6 +186,26 @@
             transform: translateY(-1px);
         }
 
+        .mensaje-login {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .mensaje-error {
+            color: #A51F1F;
+            background-color: #FCE8E8;
+            border: 1px solid #E8B5B5;
+        }
+
+        .mensaje-exito {
+            color: #216B38;
+            background-color: #E5F4E9;
+            border: 1px solid #B7DCC1;
+        }
+
         .separador {
             display: flex;
             align-items: center;
@@ -329,6 +349,8 @@
             }
         }
     </style>
+
+    <script src="js/login.js" defer></script>
 </head>
 
 <body>
@@ -369,6 +391,7 @@
                     name="contrasena"
                     placeholder="Ingresa tu contraseña"
                     autocomplete="current-password"
+                    minlength="8"
                     required
                 >
             </div>
@@ -390,6 +413,8 @@
                 Iniciar sesión
             </button>
 
+            <p id="mensaje-login" class="mensaje-login" role="status" aria-live="polite"></p>
+
         </form>
 
         <div class="separador">
@@ -404,7 +429,7 @@
         </p>
 
         <a href="index.html" class="volver">
-               Volver al inicio
+            Volver al inicio
         </a>
 
         <p class="nota">
