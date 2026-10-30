@@ -6,48 +6,62 @@ const alertas = [
         id: 1,
         nombre: "Correo sospechoso",
         tipo: "phishing",
+        descripcion: "Posible intento de phishing",
         nivelRiesgo: "alto",
-        puntajeRiesgo: 90
+        puntajeRiesgo: 90,
+        imagen: "img/phishing.png"
     },
     {
         id: 2,
         nombre: "Enlace sospechoso",
         tipo: "url",
+        descripcion: "URL que requiere verificacion",
         nivelRiesgo: "medio",
-        puntajeRiesgo: 60
+        puntajeRiesgo: 60,
+        imagen: "img/enlace.png"
     },
     {
         id: 3,
         nombre: "Actividad inusual",
         tipo: "acceso",
+        descripcion: "Acceso que requiere verificacion",
         nivelRiesgo: "bajo",
-        puntajeRiesgo: 25
+        puntajeRiesgo: 25,
+        imagen: "img/actividad.png"
     },
     {
         id: 4,
-        nombre: "Archivo sospechoso",
+        nombre: "Malware detectado",
         tipo: "malware",
+        descripcion: "Archivo potencialmente malicioso",
         nivelRiesgo: "alto",
-        puntajeRiesgo: 95
+        puntajeRiesgo: 95,
+        imagen: "img/malware.png"
     },
     {
         id: 5,
-        nombre: "Transacción sospechosa",
+        nombre: "Intentos de acceso fallidos",
+        tipo: "acceso",
+        descripcion: "Autenticacion que requiere revision",
+        nivelRiesgo: "medio",
+        puntajeRiesgo: 55,
+        imagen: "img/acceso-fallido.png"
+    },
+    {
+        id: 6,
+        nombre: "Transaccion sospechosa",
         tipo: "transaccion",
+        descripcion: "Operacion financiera por revisar",
         nivelRiesgo: "alto",
-        puntajeRiesgo: 85
+        puntajeRiesgo: 85,
+        imagen: "img/transaccion.png"
     }
 ];
 
 function filtrarAlertas(lista, nivelRiesgo, tipo) {
     return lista.filter(function(alerta) {
-        const coincideNivel =
-            nivelRiesgo === "" ||
-            alerta.nivelRiesgo === nivelRiesgo;
-
-        const coincideTipo =
-            tipo === "" ||
-            alerta.tipo === tipo;
+        const coincideNivel = nivelRiesgo === "" || alerta.nivelRiesgo === nivelRiesgo;
+        const coincideTipo = tipo === "" || alerta.tipo === tipo;
 
         return coincideNivel && coincideTipo;
     });
@@ -59,18 +73,42 @@ function calcularPuntajeTotal(lista) {
     }, 0);
 }
 
-const alertasAltoRiesgo = filtrarAlertas(
-    alertas,
-    "alto",
-    ""
-);
+function mostrarAlertas(lista) {
+    const contenedorAlertas = document.querySelector("#alertas");
 
-const alertasPhishing = filtrarAlertas(
-    alertas,
-    "",
-    "phishing"
-);
+    contenedorAlertas.textContent = "";
 
+    lista.forEach(function(alerta) {
+        const tarjeta = document.createElement("article");
+        tarjeta.setAttribute("class", "producto");
+
+        const imagen = document.createElement("img");
+        imagen.setAttribute("src", alerta.imagen);
+        imagen.setAttribute("alt", alerta.nombre);
+
+        const titulo = document.createElement("h2");
+        titulo.textContent = alerta.nombre;
+
+        const descripcion = document.createElement("p");
+        descripcion.textContent = "Tipo: " + alerta.descripcion;
+
+        const riesgo = document.createElement("p");
+        riesgo.setAttribute("class", "nivel-riesgo");
+        riesgo.textContent = "Riesgo " + alerta.nivelRiesgo;
+
+        tarjeta.appendChild(imagen);
+        tarjeta.appendChild(titulo);
+        tarjeta.appendChild(descripcion);
+        tarjeta.appendChild(riesgo);
+
+        contenedorAlertas.appendChild(tarjeta);
+    });
+}
+
+mostrarAlertas(alertas);
+
+const alertasAltoRiesgo = filtrarAlertas(alertas, "alto", "");
+const alertasPhishing = filtrarAlertas(alertas, "", "phishing");
 const puntajeTotal = calcularPuntajeTotal(alertas);
 
 console.log("Sistema:", nombreSistema);
