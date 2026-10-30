@@ -58,6 +58,8 @@ const alertas = [
     }
 ];
 
+let alertasSeleccionadas = [];
+
 function filtrarAlertas(lista, nivelRiesgo, tipo) {
     return lista.filter(function(alerta) {
         const coincideNivel = nivelRiesgo === "" || alerta.nivelRiesgo === nivelRiesgo;
@@ -98,10 +100,24 @@ function mostrarAlertas(lista) {
         riesgo.setAttribute("class", "nivel-riesgo");
         riesgo.textContent = "Riesgo " + alerta.nivelRiesgo;
 
+        const puntaje = document.createElement("p");
+        puntaje.textContent = "Puntaje de riesgo: " + alerta.puntajeRiesgo;
+
+        const botonAgregar = document.createElement("button");
+        botonAgregar.setAttribute("class", "boton-agregar");
+        botonAgregar.setAttribute("type", "button");
+        botonAgregar.textContent = "Agregar al seguimiento";
+
+        botonAgregar.addEventListener("click", function() {
+            agregarAlSeguimiento(alerta);
+        });
+
         tarjeta.appendChild(imagen);
         tarjeta.appendChild(titulo);
         tarjeta.appendChild(descripcion);
         tarjeta.appendChild(riesgo);
+        tarjeta.appendChild(puntaje);
+        tarjeta.appendChild(botonAgregar);
 
         contenedorAlertas.appendChild(tarjeta);
     });
@@ -110,8 +126,6 @@ function mostrarAlertas(lista) {
 function aplicarFiltros() {
     const nivelRiesgo = document.querySelector("#filtro-riesgo").value;
     const tipo = document.querySelector("#filtro-tipo").value;
-
-    const alertasFiltradas = filtrarAlertas(alertas, nivelRiesgo, tipo);
 
     const tarjetas = document.querySelectorAll("#alertas .producto");
 
@@ -130,11 +144,117 @@ function limpiarFiltros() {
     aplicarFiltros();
 }
 
+function agregarAlSeguimiento(alerta) {
+    const alertaExistente = alertasSeleccionadas.find(function(elemento) {
+        return elemento.id === alerta.id;
+    });
+
+    if (alertaExistente) {
+        alertaExistente.cantidad++;
+    } else {
+        alertasSeleccionadas.push({
+            id: alerta.id,
+            nombre: alerta.nombre,
+            nivelRiesgo: alerta.nivelRiesgo,
+            puntajeRiesgo: alerta.puntajeRiesgo,
+            cantidad: 1
+        });
+    }
+
+    mostrarSeguimiento();
+}
+
+function calcularCantidadSeleccionada() {
+    return alertasSeleccionadas.reduce(function(total, alerta) {
+        return total + alerta.cantidad;
+    }, 0);
+}
+
+function calcularPuntajeAcumulado() {
+    return alertasSeleccionadas.reduce(function(total, alerta) {
+        return total + alerta.puntajeRiesgo * alerta.cantidad;
+    }, 0);
+}
+
+function mostrarSeguimiento() {
+    const contenedorSeguimiento = document.querySelector("#lista-seguimiento");
+    const contadorAlertas = document.querySelector("#contador-alertas");
+    const puntajeAcumulado = document.querySelector("#puntaje-acumulado");
+
+    contenedorSeguimiento.textContent = "";
+
+    contadorAlertas.textContent = calcularCantidadSeleccionada();
+    puntajeAcumulado.textContent = calcularPuntajeAcumulado();
+
+    if (alertasSeleccionadas.length === 0) {
+        const mensaje = document.createElement("p");
+        mensaje.setAttribute("class", "mensaje-seguimiento");
+        mensaje.textContent = "No hay alertas seleccionadas para seguimiento.";
+
+        contenedorSeguimiento.appendChild(mensaje);
+    }
+
+    alertasSeleccionadas.forEach(function(alerta) {
+        const elemento = document.createElement("div");
+        elemento.setAttribute("class", "elemento-seguimiento");
+
+        const informacion = document.createElement("div");
+        informacion.setAttribute("class", "informacion-seguimiento");
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = alerta.nombre;
+
+        const riesgo = document.createElement("p");
+        riesgo.textContent = "Nivel de riesgo: " + alerta.nivelRiesgo;
+
+        const cantidad = document.createElement("p");
+        cantidad.textContent = "Cantidad: " + alerta.cantidad;
+
+        const puntaje = document.createElement("p");
+        puntaje.textContent = "Puntaje acumulado: " + alerta.puntajeRiesgo * alerta.cantidad;
+
+        const botonRetirar = document.createElement("button");
+        botonRetirar.setAttribute("class", "boton-retirar");
+        botonRetirar.setAttribute("type", "button");
+        botonRetirar.textContent = "Retirar alerta";
+
+        botonRetirar.addEventListener("click", function() {
+            retirarAlerta(alerta.id);
+        });
+
+        informacion.appendChild(titulo);
+        informacion.appendChild(riesgo);
+        informacion.appendChild(cantidad);
+        informacion.appendChild(puntaje);
+
+        elemento.appendChild(informacion);
+        elemento.appendChild(botonRetirar);
+
+        contenedorSeguimiento.appendChild(elemento);
+    });
+}
+
+function retirarAlerta(id) {
+    alertasSeleccionadas = alertasSeleccionadas.filter(function(alerta) {
+        return alerta.id !== id;
+    });
+
+    mostrarSeguimiento();
+}
+
+function vaciarSeguimiento() {
+    alertasSeleccionadas = [];
+
+    mostrarSeguimiento();
+}
+
 mostrarAlertas(alertas);
+mostrarSeguimiento();
 
 document.querySelector("#filtro-riesgo").addEventListener("change", aplicarFiltros);
 document.querySelector("#filtro-tipo").addEventListener("change", aplicarFiltros);
 document.querySelector("#limpiar-filtros").addEventListener("click", limpiarFiltros);
+document.querySelector("#vaciar-seguimiento").addEventListener("click", vaciarSeguimiento);
 
 const alertasAltoRiesgo = filtrarAlertas(alertas, "alto", "");
 const alertasPhishing = filtrarAlertas(alertas, "", "phishing");

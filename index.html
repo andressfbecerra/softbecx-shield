@@ -55,6 +55,35 @@
 
         <section id="alertas" class="catalogo" aria-label="Alertas de seguridad">
         </section>
+
+        <section class="seguimiento-alertas" aria-label="Seguimiento de alertas">
+            <div class="encabezado-seguimiento">
+                <h2>Alertas seleccionadas para seguimiento</h2>
+                <p>Selecciona las alertas que requieren una revisión posterior.</p>
+            </div>
+
+            <div class="resumen-seguimiento">
+                <div class="dato-seguimiento">
+                    <h3>Alertas seleccionadas</h3>
+                    <p id="contador-alertas">0</p>
+                </div>
+
+                <div class="dato-seguimiento">
+                    <h3>Puntaje acumulado</h3>
+                    <p id="puntaje-acumulado">0</p>
+                </div>
+            </div>
+
+            <div id="lista-seguimiento" class="lista-seguimiento">
+                <p class="mensaje-seguimiento">
+                    No hay alertas seleccionadas para seguimiento.
+                </p>
+            </div>
+
+            <button id="vaciar-seguimiento" type="button">
+                Vaciar seguimiento
+            </button>
+        </section>
     </main>
 
     <footer>
