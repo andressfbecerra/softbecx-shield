@@ -82,6 +82,93 @@ body {
     border-bottom-color: #C62828;
 }
 
+.filtros-alertas {
+    width: 100%;
+    padding: 30px 4% 10px;
+    background: #F5F5F5;
+}
+
+.filtros-alertas h2 {
+    margin: 0 0 20px;
+    color: #202124;
+    font-size: 24px;
+    text-align: center;
+}
+
+.contenedor-filtros {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #202124;
+    border: 1px solid #3A3B3D;
+    border-radius: 12px;
+}
+
+.campo-filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.campo-filtro label {
+    color: #F5F5F5;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.campo-filtro select {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    color: #202124;
+    background: #F5F5F5;
+    border: 1px solid #D0D0D0;
+    border-radius: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.campo-filtro select:focus {
+    outline: 2px solid #C62828;
+    outline-offset: 2px;
+}
+
+#limpiar-filtros {
+    min-height: 46px;
+    padding: 11px 20px;
+    color: #FFFFFF;
+    background: #C62828;
+    border: none;
+    border-radius: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#limpiar-filtros:hover {
+    background: #A61F1F;
+}
+
+#limpiar-filtros:focus-visible {
+    outline: 3px solid #F5F5F5;
+    outline-offset: 3px;
+}
+
+.oculto {
+    display: none;
+}
+
 .catalogo {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -657,6 +744,27 @@ footer p {
         font-size: 14px;
     }
 
+    .filtros-alertas {
+        padding: 24px 16px 8px;
+    }
+
+    .filtros-alertas h2 {
+        font-size: 21px;
+    }
+
+    .contenedor-filtros {
+        gap: 16px;
+        padding: 18px;
+    }
+
+    .campo-filtro {
+        min-width: 100%;
+    }
+
+    #limpiar-filtros {
+        width: 100%;
+    }
+
     .catalogo {
         gap: 20px;
         padding: 24px 16px;
@@ -801,7 +909,8 @@ footer p {
     .producto,
     .boton-enviar,
     .enlace-inicio-recuperacion,
-    .boton-recuperacion {
+    .boton-recuperacion,
+    #limpiar-filtros {
         transition: none;
     }
 }

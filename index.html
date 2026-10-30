@@ -21,6 +21,38 @@
     </header>
 
     <main id="Inicio">
+        <section class="filtros-alertas" aria-label="Filtros de alertas">
+            <h2>Filtrar alertas de seguridad</h2>
+
+            <div class="contenedor-filtros">
+                <div class="campo-filtro">
+                    <label for="filtro-riesgo">Nivel de riesgo</label>
+                    <select id="filtro-riesgo">
+                        <option value="">Todos los niveles</option>
+                        <option value="alto">Alto</option>
+                        <option value="medio">Medio</option>
+                        <option value="bajo">Bajo</option>
+                    </select>
+                </div>
+
+                <div class="campo-filtro">
+                    <label for="filtro-tipo">Tipo de alerta</label>
+                    <select id="filtro-tipo">
+                        <option value="">Todos los tipos</option>
+                        <option value="phishing">Phishing</option>
+                        <option value="url">URL</option>
+                        <option value="acceso">Acceso</option>
+                        <option value="malware">Malware</option>
+                        <option value="transaccion">Transacción</option>
+                    </select>
+                </div>
+
+                <button id="limpiar-filtros" type="button">
+                    Limpiar filtros
+                </button>
+            </div>
+        </section>
+
         <section id="alertas" class="catalogo" aria-label="Alertas de seguridad">
         </section>
     </main>

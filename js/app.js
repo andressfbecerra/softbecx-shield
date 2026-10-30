@@ -81,6 +81,8 @@ function mostrarAlertas(lista) {
     lista.forEach(function(alerta) {
         const tarjeta = document.createElement("article");
         tarjeta.setAttribute("class", "producto");
+        tarjeta.setAttribute("data-nivel-riesgo", alerta.nivelRiesgo);
+        tarjeta.setAttribute("data-tipo", alerta.tipo);
 
         const imagen = document.createElement("img");
         imagen.setAttribute("src", alerta.imagen);
@@ -105,7 +107,34 @@ function mostrarAlertas(lista) {
     });
 }
 
+function aplicarFiltros() {
+    const nivelRiesgo = document.querySelector("#filtro-riesgo").value;
+    const tipo = document.querySelector("#filtro-tipo").value;
+
+    const alertasFiltradas = filtrarAlertas(alertas, nivelRiesgo, tipo);
+
+    const tarjetas = document.querySelectorAll("#alertas .producto");
+
+    tarjetas.forEach(function(tarjeta) {
+        const coincideNivel = nivelRiesgo === "" || tarjeta.dataset.nivelRiesgo === nivelRiesgo;
+        const coincideTipo = tipo === "" || tarjeta.dataset.tipo === tipo;
+
+        tarjeta.classList.toggle("oculto", !(coincideNivel && coincideTipo));
+    });
+}
+
+function limpiarFiltros() {
+    document.querySelector("#filtro-riesgo").value = "";
+    document.querySelector("#filtro-tipo").value = "";
+
+    aplicarFiltros();
+}
+
 mostrarAlertas(alertas);
+
+document.querySelector("#filtro-riesgo").addEventListener("change", aplicarFiltros);
+document.querySelector("#filtro-tipo").addEventListener("change", aplicarFiltros);
+document.querySelector("#limpiar-filtros").addEventListener("click", limpiarFiltros);
 
 const alertasAltoRiesgo = filtrarAlertas(alertas, "alto", "");
 const alertasPhishing = filtrarAlertas(alertas, "", "phishing");
